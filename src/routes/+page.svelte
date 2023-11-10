@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-  <title>Library Management Software - nomy.TUBE</title> 
+  <title>Community Management Software - nomy.HOME</title> 
   <meta name="description" content="A dangerous place to get some flow-based devgramming done." />
 </svelte:head>
 
@@ -30,20 +30,20 @@
   <div class="container" style="max-width: 600px;">
     <div class="card">
       <div class="card-content">
-        <strong>What is TUBE?</strong>
-        <h1 style="margin: 0;">Library Management Software</h1>
+        <strong>What is HOME?</strong>
+        <h1 style="margin: 0;">Community Management Software</h1>
         <br />
-        <p>TUBE is a system that optomizes the flow of</p>
+        <p>HOME is a system that optomizes the flow of</p>
         <h4 style="margin: 0;">
-          <span class="green">videos,</span>
-          <span class="blue">playlists,</span>
-          <span class="purple">and subscriptions</span>
+          <span class="green">content,</span>
+          <span class="blue">activity,</span>
+          <span class="purple">and members</span>
         </h4>
         <p>in an organization.</p>
         <br />
-        <p>Easily promote and sell your goods and services.</p>
+        <p>Easily engage and empower your community.</p>
         <br />
-        <p>Notify subscribers, manage playlists, and showcase videos using your very own catalog in minutes. No code needed.</p>
+        <p>Load balance traffic by creating a splash page landing or homepage that is optimized for every user. No code needed.</p>
         <br />
         {#if accessToken}
           <a href={`/${decoded.type === 'user' ? decoded.username : `${decoded.ownername}/${decoded.orgname}/accounts/${decoded.accountname}`}`} class="waves-effect yellow black-text lighten-2 btn username">{decoded.username || decoded.accountname}</a>
@@ -80,7 +80,7 @@
 <br />
 
 <div class="container" style="overflow: hidden;">
-  <h2 style="text-align: center;">Best Fair-Source LMS for Small and Medium Business</h2>
+  <h2 style="text-align: center;">Best Fair-Source CMS for Small and Medium Business</h2>
   <div class="row">
     <div class="col s12 m4">
       <h5 style="margin: 0 0 0.5em;">µSaaS pricing start from $19/month</h5>
@@ -98,11 +98,11 @@
         <div>For Example:</div>
         <div class="input-field" style="margin-top: 0;">
           <i class="material-icons prefix">public</i>
-          <input id="example" class="validate" disabled type="text" value="https://videos.istrav.com">
+          <input id="example" class="validate" disabled type="text" value="https://underwind.solutions">
           <!-- <label for="example">For Example:</label> -->
         </div>
         <div class="" style="height: 600px; overflow: hidden;">
-          <iframe class="zoomedIframe" src="https://videos.istrav.com" frameborder="0" style="width: 200%; height: 2400px; padding: 0; margin: 0;"></iframe>
+          <iframe class="zoomedIframe" src="https://underwind.solutions" frameborder="0" style="width: 200%; height: 2400px; padding: 0; margin: 0;"></iframe>
         </div>
       </div>
     </div>

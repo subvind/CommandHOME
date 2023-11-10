@@ -108,7 +108,7 @@
       </ul>
     {/if}
 
-    <a href="/" class="brand-logo center"><span class="yellow">nomy</span>.<span class="red">TUBE</span></a>
+    <a href="/" class="brand-logo center"><span class="yellow">nomy</span>.<span class="red">HOME</span></a>
 
     {#if user}
       {#if user.authStatus === 'Pending'}

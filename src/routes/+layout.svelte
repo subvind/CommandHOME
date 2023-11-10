@@ -11,7 +11,7 @@
   onMount(async () => {
     backendHostname = window.location.hostname
     if (backendHostname === 'localhost') {
-      backendHostname = 'desknomy.subvind.com'
+      backendHostname = 'homenomy.subvind.com'
     }
     const response = await fetch(`https://api.subvind.com/organizations/backendHostname/${backendHostname}`, {
       method: 'GET',
