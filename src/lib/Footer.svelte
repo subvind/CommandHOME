@@ -29,7 +29,7 @@
 <div class="container">
   <a href="/terms-and-conditions" class="nav hide-on-med-and-down">Terms & Conditions</a>
   <a href="/privacy-policy" class="nav hide-on-med-and-down">Privacy Policy</a>
-  <h3 class="logo">nomy.TUBE</h3>
+  <h3 class="logo">nomy.HOME</h3>
 </div>
 <hr>
 <div class="container">
