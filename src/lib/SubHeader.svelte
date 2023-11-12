@@ -3,6 +3,7 @@
   import jwt_decode from 'jwt-decode';
 
   import Sidebar from "./Sidebar.svelte"
+  import { NavModules } from "subvind-components"
 
   let decodedToken: any = null;
   let user: any;
@@ -22,6 +23,9 @@
 
   async function load() {
     if (decodedToken.type === 'user') {
+      /**
+       * type === 'user'
+       **/ 
       const response = await fetch(`https://api.subvind.com/users/username/${decodedToken.username}`, {
         method: 'GET',
         headers: {
@@ -42,20 +46,6 @@
       /**
        * type === 'account'
        **/ 
-      const response2 = await fetch(`https://api.subvind.com/organizations/orgname/${decodedToken.orgname}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
-  
-      if (response2.ok) {
-        organization = await response2.json();
-      } else {
-        const errorData = await response2.json();
-        alert(errorData.error);
-      }
-
       const response3 = await fetch(`https://api.subvind.com/accounts/accountname/${decodedToken.accountname}/${organization.id}`, {
         method: 'GET',
         headers: {
@@ -73,12 +63,31 @@
   }
 
   onMount(async () => {
+    let backendHostname = window.location.hostname
+    if (backendHostname === 'localhost') {
+      backendHostname = 'homenomy.subvind.com'
+    }
+    const response2 = await fetch(`https://api.subvind.com/organizations/backendHostname/${backendHostname}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+
+    if (response2.ok) {
+      organization = await response2.json();
+    } else {
+      const errorData = await response2.json();
+      alert(errorData.error);
+    }
+
     let accessToken: any = localStorage.getItem('access_token');
 
     // Decode the JWT
-    decodedToken = jwt_decode(accessToken);
-
-    await load()
+    if (accessToken) {
+      decodedToken = jwt_decode(accessToken);
+      await load()
+    }
   })
 </script>
 
@@ -108,8 +117,8 @@
       </ul>
     {/if}
 
-    <a href="/" class="brand-logo center"><span class="yellow">nomy</span>.<span class="red">HOME</span></a>
-
+    <NavModules load="homenomy" organization={organization} />
+    
     {#if user}
       {#if user.authStatus === 'Pending'}
         <!-- show nothing -->

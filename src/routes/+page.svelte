@@ -7,7 +7,9 @@
 
   onMount(() => {
     accessToken = localStorage.getItem('access_token');
-    decoded = jwt_decode(accessToken);
+    if (accessToken) {
+      decoded = jwt_decode(accessToken);
+    }
 
     M.updateTextFields();
 
