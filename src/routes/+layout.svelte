@@ -3,7 +3,7 @@
   
   import { HeaderDefault } from "subvind-components"
   import SubHeader from "$lib/SubHeader.svelte"
-  import Footer from "$lib/Footer.svelte"
+  import { FooterCommand } from "subvind-components"
 
   let organization: any;
 	let backendHostname: any = '';
@@ -41,8 +41,7 @@
 
 <slot />
 
-<Footer />
-
+<FooterCommand active="HOME" />
 
 <style>
   :global(body) {
