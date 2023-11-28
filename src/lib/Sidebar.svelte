@@ -21,13 +21,13 @@
 
 <ul id="nav-mobile" class="left hide-on-med-and-down">
   <li>
-    <a href={`/${username}/${orgname}/information`}><span class="blue">information</span></a>
+    <a href={`/${username}/${orgname}/content`}><span class="green">content</span></a>
   </li>
   <li>
-    <a href={`/${username}/${orgname}/materials`}><span class="red">materials</span></a>
+    <a href={`/${username}/${orgname}/activity`}><span class="blue">activity</span></a>
   </li>
   <li>
-    <a href={`/${username}/${orgname}/cash`}><span class="green">cash</span></a>
+    <a href={`/${username}/${orgname}/members`}><span class="purple">members</span></a>
   </li>
 </ul>
 
@@ -46,6 +46,10 @@
   }
   .red {
     color: red;
+    background-color: transparent !important;
+  }
+  .purple {
+    color: purple;
     background-color: transparent !important;
   }
 </style>

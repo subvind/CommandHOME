@@ -124,11 +124,10 @@
         <!-- show nothing -->
       {:else}
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/users"><span class="yellow">users</span></a></li>
-          <li><a href={`/${decodedToken.username}`}>{decodedToken.fullName}</a></li>
-          <li><a href="/organizations"><span class="yellow">organizations</span></a></li>
+          <li><a href="/users"></a></li>
+          <li><a href={`/${decodedToken.username}`}><span class="yellow">user:</span> {decodedToken.fullName}</a></li>
           {#if user.defaultOrganization}
-            <li><a href={`/${decodedToken.username}/${user.defaultOrganization.orgname}`}>{user.defaultOrganization.displayName}</a></li>
+            <li><a href={`/${decodedToken.username}/${user.defaultOrganization.orgname}`}><span class="yellow">organization:</span> {user.defaultOrganization.displayName}</a></li>
           {/if}
         </ul>
       {/if}
@@ -136,11 +135,9 @@
 
     {#if account}
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href={`/${decodedToken.ownername}/${decodedToken.orgname}#employees`}><span class="yellow">accounts</span></a></li>
-        <li><a href={`/${decodedToken.ownername}/${decodedToken.orgname}/accounts/${decodedToken.accountname}`}>{decodedToken.fullName}</a></li>
-        <li><a href="/organizations"><span class="yellow">organizations</span></a></li>
+        <li><a href={`/${decodedToken.ownername}/${decodedToken.orgname}/accounts/${decodedToken.accountname}`}><span class="yellow">account:</span> {decodedToken.fullName}</a></li>
         {#if account.organization}
-          <li><a href={`/${decodedToken.ownername}/${decodedToken.orgname}`}>{account.organization.displayName}</a></li>
+          <li><a href={`/${decodedToken.ownername}/${decodedToken.orgname}`}><span class="yellow">organization:</span> {account.organization.displayName}</a></li>
         {/if}
       </ul>
     {/if}
