@@ -125,20 +125,20 @@
       {:else}
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/users"></a></li>
-          <li><a href={`/${decodedToken.username}`}><span class="yellow">user:</span> {decodedToken.fullName}</a></li>
           {#if user.defaultOrganization}
             <li><a href={`/${decodedToken.username}/${user.defaultOrganization.orgname}`}><span class="yellow">organization:</span> {user.defaultOrganization.displayName}</a></li>
           {/if}
+          <li><a href={`/${decodedToken.username}`}><span class="yellow">user:</span> {decodedToken.fullName}</a></li>
         </ul>
       {/if}
     {/if}
 
     {#if account}
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href={`/${decodedToken.ownername}/${decodedToken.orgname}/accounts/${decodedToken.accountname}`}><span class="yellow">account:</span> {decodedToken.fullName}</a></li>
         {#if account.organization}
           <li><a href={`/${decodedToken.ownername}/${decodedToken.orgname}`}><span class="yellow">organization:</span> {account.organization.displayName}</a></li>
         {/if}
+        <li><a href={`/${decodedToken.ownername}/${decodedToken.orgname}/accounts/${decodedToken.accountname}`}><span class="yellow">account:</span> {decodedToken.fullName}</a></li>
       </ul>
     {/if}
 
@@ -152,6 +152,10 @@
 </nav>
 
 <style>
+  ul.right li {
+    float: right;
+  }
+
   .yellow {
     color: yellow;
     background-color: transparent !important;
@@ -169,7 +173,7 @@
     background-color: transparent !important;
   }
   .purple {
-    color: purple;
+    color: #AE81FF;
     background-color: transparent !important;
   }
 </style>

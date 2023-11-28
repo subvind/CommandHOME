@@ -37,9 +37,9 @@
         <br />
         <p>HOME is a system that optomizes the flow of</p>
         <h4 style="margin: 0;">
-          <span class="green">content,</span>
-          <span class="blue">activity,</span>
-          <span class="purple">and members</span>
+          <span class="blue">content,</span>
+          <span class="red">activity,</span>
+          <span class="green">and members</span>
         </h4>
         <p>in an organization.</p>
         <br />
@@ -112,7 +112,6 @@
 </div>
 <br />
 <br />
-
 
 <style>
   .zoomedIframe {

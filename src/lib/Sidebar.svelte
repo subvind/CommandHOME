@@ -21,13 +21,13 @@
 
 <ul id="nav-mobile" class="left hide-on-med-and-down">
   <li>
-    <a href={`/${username}/${orgname}/content`}><span class="green">content</span></a>
+    <a href={`/${username}/${orgname}/content`}><span class="blue">content</span></a>
   </li>
   <li>
-    <a href={`/${username}/${orgname}/activity`}><span class="blue">activity</span></a>
+    <a href={`/${username}/${orgname}/activity`}><span class="red">activity</span></a>
   </li>
   <li>
-    <a href={`/${username}/${orgname}/members`}><span class="purple">members</span></a>
+    <a href={`/${username}/${orgname}/members`}><span class="green">members</span></a>
   </li>
 </ul>
 
@@ -49,7 +49,7 @@
     background-color: transparent !important;
   }
   .purple {
-    color: purple;
+    color: #AE81FF;
     background-color: transparent !important;
   }
 </style>
