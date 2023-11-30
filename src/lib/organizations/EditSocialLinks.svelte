@@ -91,7 +91,7 @@
 <form on:submit={(e) => submit(e)}>
   <div class="modal sfdlfhsdfshldkjlsdkjhsl">
     <div class="modal-content">
-      <h4>Settings</h4>
+      <h4>Edit Social Links</h4>
       <br />
       <div class="row">
         <div class="input-field col s12">
