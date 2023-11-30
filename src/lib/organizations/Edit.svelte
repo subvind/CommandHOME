@@ -25,18 +25,9 @@
       homepageLink = organization.homepageLink
       description = organization.description
       shortName = organization.shortName
-      isErpModule = organization.isErpModule
-      isTubeModule = organization.isTubeModule
-      isDeskModule = organization.isDeskModule
-      erpHostname = organization.erpHostname
-      tubeHostname = organization.tubeHostname
-      deskHostname = organization.deskHostname
       contactCenterEmail = organization.contactCenterEmail
       privacyPolicy = organization.privacyPolicy
       termsAndConditions = organization.termsAndConditions
-      ebayUser = organization.ebayUser
-      etsyShop = organization.etsyShop
-      youtubeChannel = organization.youtubeChannel
 
       setTimeout(() => {
         M.updateTextFields();
@@ -52,19 +43,10 @@
   let displayName = ''
   let shortName = ''
   let description = ''
-  let isErpModule: boolean = true;
-  let isTubeModule: boolean = true;
-  let isDeskModule: boolean = true;
-	let erpHostname = ''
-	let tubeHostname = ''
-	let deskHostname = ''
   let homepageLink = ''
   let contactCenterEmail = ''
   let privacyPolicy = ''
   let termsAndConditions = ''
-  let ebayUser = ''
-  let etsyShop = ''
-  let youtubeChannel = ''
 
 	async function submit(event: any) {
     event.preventDefault()
@@ -86,19 +68,10 @@
           displayName,
           shortName,
           description,
-          isErpModule,
-          isTubeModule,
-          isDeskModule,
-          erpHostname,
-          tubeHostname,
-          deskHostname,
           homepageLink,
           contactCenterEmail,
           privacyPolicy,
           termsAndConditions,
-          ebayUser,
-          etsyShop,
-          youtubeChannel
         }),
       });
 
@@ -125,7 +98,7 @@
 <form on:submit={(e) => submit(e)}>
   <div class="modal sdcebryytpozdscqwm">
     <div class="modal-content">
-      <h4>Settings</h4>
+      <h4>Edit Organization</h4>
       <br />
       <div class="row">
         <div class="input-field col s6">
@@ -153,75 +126,6 @@
           <label for="erpHostname">Homepage Link</label>
           <span class="helper-text">Should be a valid browser domain url including https://.</span>
         </div>
-        {#if orgname}
-          <div class="col s12">
-            <span>µSaaS Modules:</span><br />
-            <label>
-              <input type="checkbox" bind:checked={isErpModule}>
-              <span>Enable ERP</span>
-            </label>
-            <br />
-            <a href={`https://${orgname}.erpnomy.subvind.com`} target="_blank">https://{orgname}.erpnomy.subvind.com</a>
-            <br />
-            <label>
-              <input type="checkbox" bind:checked={isTubeModule}>
-              <span>Enable TUBE</span>
-            </label>
-            <br />
-            <a href={`https://${orgname}.tubenomy.com`} target="_blank">https://{orgname}.tubenomy.com</a>
-            <br />
-            <label>
-              <input type="checkbox" bind:checked={isDeskModule}>
-              <span>Enable DESK</span>
-            </label>
-            <br />
-            <a href={`https://${orgname}.desknomy.com`} target="_blank">https://{orgname}.desknomy.com</a>
-          </div>
-        {/if}
-        <div class="col s12">
-          <p>
-            *NOTICE: The following hostnames require additional configuration in order to work. We have settings that need to be manually changed on our end that we have yet to automate. So go ahead and open up a support ticket with us and we'll get you squared away.
-          </p>
-        </div>
-        {#if isErpModule}
-          <div class="input-field col s12">
-            <input id="erpHostname" type="text" class="validate" bind:value={erpHostname}>
-            <label for="erpHostname">ERP Hostname*</label>
-            <span class="helper-text">Should be a valid browser domain name. May include sub domain.</span>
-          </div>
-        {/if}
-        {#if isTubeModule}
-          <div class="input-field col s12">
-            <input id="tubeHostname" type="text" class="validate" bind:value={tubeHostname}>
-            <label for="tubeHostname">TUBE Hostname*</label>
-            <span class="helper-text">Should be a valid browser domain name. May include sub domain.</span>
-          </div>
-        {/if}
-        {#if isDeskModule}
-          <div class="input-field col s12">
-            <input id="deskHostname" type="text" class="validate" bind:value={deskHostname}>
-            <label for="deskHostname">DESK Hostname*</label>
-            <span class="helper-text">Should be a valid browser domain name. May include sub domain.</span>
-          </div>
-        {/if}
-        {#if erpHostname}
-          <div class="col s12">
-            <span>Bolt-ons:</span><br />
-            {#if isErpModule}
-              <a href={`https://${erpHostname}`} target="_blank">https://{erpHostname}</a> --> ERP
-              <br />
-            {/if}
-            {#if isTubeModule}
-              <a href={`https://${tubeHostname}`} target="_blank">https://{tubeHostname}</a> --> TUBE
-              <br />
-            {/if}
-            {#if isDeskModule}
-              <a href={`https://${deskHostname}`} target="_blank">https://{deskHostname}</a> --> DESK
-              <br />
-            {/if}
-            <br />
-          </div>
-        {/if}
         <div class="input-field col s12">
           <input id="contactCenterEmail" type="text" class="validate" bind:value={contactCenterEmail}>
           <label for="contactCenterEmail">Contact Center Email</label>
@@ -236,21 +140,6 @@
           <textarea id="termsAndConditions" class="materialize-textarea" bind:value={termsAndConditions}></textarea>
           <label for="termsAndConditions">Terms & Conditions</label>
           <span class="helper-text">For instance, "Everyone needs to behave."</span>
-        </div>
-        <div class="input-field col s12">
-          <input id="ebayUser" type="text" class="validate" bind:value={ebayUser}>
-          <label for="ebayUser">eBay User</label>
-          <span class="helper-text">https://www.ebay.com/usr/{ebayUser}</span>
-        </div>
-        <div class="input-field col s12">
-          <input id="etsyShop" type="text" class="validate" bind:value={etsyShop}>
-          <label for="etsyShop">Etsy Shop</label>
-          <span class="helper-text">https://www.etsy.com/shop/{etsyShop}</span>
-        </div>
-        <div class="input-field col s12">
-          <input id="youtubeChannel" type="text" class="validate" bind:value={youtubeChannel}>
-          <label for="youtubeChannel">YouTube Channel</label>
-          <span class="helper-text">https://youtube.com/{youtubeChannel}</span>
         </div>
       </div>
     </div>

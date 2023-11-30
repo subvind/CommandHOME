@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import Settings from '$lib/organizations/Settings.svelte'
+  import Edit from '$lib/organizations/Edit.svelte'
   import Buckets from '$lib/organizations/Buckets.svelte'
   import Files from '$lib/organizations/Files.svelte'
   import OrgPhoto from "$lib/organizations/OrgPhoto.svelte";
@@ -9,6 +9,8 @@
   import CreateOrganization from "$lib/users/CreateOrganization.svelte";
   import Delete from "$lib/organizations/Delete.svelte";
   import SplashPhoto from "$lib/organizations/SplashPhoto.svelte";
+  import EditSocialLinks from "$lib/organizations/EditSocialLinks.svelte";
+  import EditModules from "$lib/organizations/EditModules.svelte";
 
   export let data: any;
   let user: any = null;
@@ -159,7 +161,13 @@
 
   {#if organization && user}
     <div class="controls">
-      <Settings user={user} organizationId={organization.id} />
+      <Edit user={user} organizationId={organization.id} />
+    </div>
+    <div class="controls">
+      <EditModules user={user} organizationId={organization.id} />
+    </div>
+    <div class="controls">
+      <EditSocialLinks user={user} organizationId={organization.id} />
     </div>
     <div class="controls">
       <CreateOrganization userId={user.id} />
