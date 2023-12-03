@@ -63,8 +63,6 @@
 
 	async function submit(event: any) {
     event.preventDefault()
-
-    if (menu === '') return alert('Menu must be defined.')
     
     loading = true 
 
