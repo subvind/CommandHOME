@@ -49,5 +49,5 @@
     height={`${lines * 16}px`}
     lang={lang}
     theme="monokai"
-    value={text} />
+    bind:value={text} />
   {/if}

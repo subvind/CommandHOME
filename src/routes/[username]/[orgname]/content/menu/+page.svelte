@@ -1,11 +1,23 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  
+  import Code from '$lib/Code.svelte';
 
   export let data
   let organization: any;
+  let original: string = '';
+  let menu: string = '';
+  let example: string = '';
+  let loading: boolean = false;
+  let preview: any = [];
+
+  $: try {
+    preview = JSON.parse(menu) || [];
+  } catch (error) {
+    console.error('Error parsing JSON:', error);
+  }
 
   onMount(async () => {
-
     var elems = document.querySelectorAll('.dropdown-trigger');
     var instances = M.Dropdown.init(elems, {
       alignment: 'right'
@@ -24,6 +36,21 @@
     if (responseOrg.ok) {
       organization = await responseOrg.json();
 
+      original = JSON.stringify(organization.menu, null, 2);
+      menu = JSON.stringify(organization.menu, null, 2);
+      example = JSON.stringify([
+        {
+          "icon": "home",
+          "name": "Homepage",
+          "url": "/"
+        },
+        {
+          "icon": "local_phone",
+          "name": "Contact Center",
+          "url": "/contact-center"
+        }
+      ], null, 2);
+
       setTimeout(() => {
         let elms = document.querySelectorAll('.tabs')
         var instance = M.Tabs.init(elms, {});
@@ -33,38 +60,90 @@
       alert(errorData.error);
     }
   })
+
+	async function submit(event: any) {
+    event.preventDefault()
+
+    if (menu === '') return alert('Menu must be defined.')
+    
+    loading = true 
+
+    try {
+      const response = await fetch(`https://api.subvind.com/organizations/${organization.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': `Bearer ${localStorage.getItem("access_token")}`
+        },
+        body: JSON.stringify({
+          menu: preview,
+        }),
+      });
+
+      if (response.ok) {
+        organization = await response.json();
+        window.location.reload()
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error);
+      }
+    } catch (error) {
+      console.error('Error registering organization:', error);
+      alert('An error occurred during submission.');
+    }
+
+    loading = false
+  }
 </script>
 
 <nav class="nav-extended grey darken-4">
   <div class="container">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo white-text">Menu</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
     </div>
-    <a href="#" data-target='dropdown1' class="btn-floating btn-large waves-effect waves-light black dropdown-trigger right" style="margin-top: -1.9em;"><i class="material-icons">more_vert</i></a>
-    <!-- Dropdown Structure -->
-    <ul id='dropdown1' class='dropdown-content'>
-      <li><a href="#!">create new</a></li>
-      <li class="divider" tabindex="-1"></li>
-      <li><a href="#!">JSON import</a></li>
-      <li><a href="#!">JSON export</a></li>
-      <li class="divider" tabindex="-1"></li>
-      <li><a href="#!">documentation</a></li>
-      <li><a href="#!">pricing</a></li>
-    </ul>
   </div>
 </nav>
-
 <div class="container">
-  {#if organization}
-    <!-- <Products organization={organization} /> -->
+  <br />
+  <br />
+  <a href="https://materializecss.com/icons.html" target="_blank" class="btn blue darken-2 right">Material Design Icons</a>
+  <h4 style="margin: 0;">json:</h4>
+  <br />
+    <Code bind:text={menu} lang="json" />
     <br />
     <br />
+    <a href="#" class="btn blue darken-2 right" on:click={() => { menu = example }}>Load Example</a>
+    <h4 style="margin: 0;">preview:</h4>
     <br />
-    <h5>Coming soon...</h5>
-    <p>This section of the application is still under construction.</p>
-  {/if}
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th style="padding: 1em;">Icon</th>
+            <th>Name</th>
+            <th>Url</th>
+          </tr>
+        </thead>
+        <tbody>
+          {#each preview as item}
+            <tr>
+              <td style="padding: 1em 1em 0.5em;"><i class="material-icons">{item.icon}</i></td>
+              <td>{item.name}</td>
+              <td>{item.url}</td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
+
+  <form on:submit={(e) => submit(e)}>
+    <a href="#" class="waves-effect btn grey" on:click={() => { menu = original }}>Reset</a>
+    {#if loading}
+      <button class="waves-effect btn disabled">Loading</button>
+    {:else}
+      <button type='submit' class="waves-effect btn blue darken-2">Submit</button>
+    {/if}
+  </form>
 </div>
 
 <style>
