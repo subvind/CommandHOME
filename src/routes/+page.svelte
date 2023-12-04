@@ -87,11 +87,14 @@
     <div class="col s12 m4">
       <h5 style="margin: 0 0 0.5em;">µSaaS pricing start from $19/month</h5>
       <ul class="collection">
-        <li class="collection-item">Replace many apps like CRM, HR, Purchases, Orders, Payments, Invoices, Quotes, Inventory, Supply Chain, Expenses, Reports, Accounting all into one easy solution.</li>
-        <li class="collection-item">Integrate with Ebay, Shopify, Magento, Etsy and add other products.</li>
+        <li class="collection-item">Accept payments for goods and services with Stripe for your business.</li>
+        <li class="collection-item">Replace many apps like ecommerce, CMS, bulletin boards, and galleries all into one solution.</li>
+        <li class="collection-item">Integrate with 3rd party apps like Twitter, YouTube, and eBay.</li>
+        <li class="collection-item">Use notifications to keep users up to date and engaged.</li>
+        <li class="collection-item">Run a tightly nit community.</li>
         <li class="collection-item">Get fast customizations and support.</li>
       </ul>
-      <a class="btn btn-large black" href="https://istrav.com/solutions">TRY FOR FREE</a>
+      <a class="btn btn-large black" href="https://burandt.istrav.com/solutions">TRY FOR FREE</a>
       <br />
       <br />
     </div>
