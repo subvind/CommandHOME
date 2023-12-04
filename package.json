@@ -20,6 +20,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@bytemd/plugin-gfm": "^1.21.0",
+		"bytemd": "^1.21.0",
 		"gridjs": "^6.0.6",
 		"jwt-decode": "^3.1.2",
 		"subvind-components": "^0.0.18",

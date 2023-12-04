@@ -102,32 +102,32 @@
   <a href="https://materializecss.com/icons.html" target="_blank" class="btn blue darken-2 right">Material Design Icons</a>
   <h4 style="margin: 0;">json:</h4>
   <br />
-    <Code bind:text={menu} lang="json" />
-    <br />
-    <br />
-    <a href="#" class="btn blue darken-2 right" on:click={() => { menu = example }}>Load Example</a>
-    <h4 style="margin: 0;">preview:</h4>
-    <br />
-    <div class="card">
-      <table>
-        <thead>
+  <Code bind:text={menu} lang="json" />
+  <br />
+  <br />
+  <a href="#" class="btn blue darken-2 right" on:click={() => { menu = example }}>Load Example</a>
+  <h4 style="margin: 0;">preview:</h4>
+  <br />
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th style="padding: 1em;">Icon</th>
+          <th>Name</th>
+          <th>Url</th>
+        </tr>
+      </thead>
+      <tbody>
+        {#each preview as item}
           <tr>
-            <th style="padding: 1em;">Icon</th>
-            <th>Name</th>
-            <th>Url</th>
+            <td style="padding: 1em 1em 0.5em;"><i class="material-icons">{item.icon}</i></td>
+            <td>{item.name}</td>
+            <td>{item.url}</td>
           </tr>
-        </thead>
-        <tbody>
-          {#each preview as item}
-            <tr>
-              <td style="padding: 1em 1em 0.5em;"><i class="material-icons">{item.icon}</i></td>
-              <td>{item.name}</td>
-              <td>{item.url}</td>
-            </tr>
-          {/each}
-        </tbody>
-      </table>
-    </div>
+        {/each}
+      </tbody>
+    </table>
+  </div>
 
   <form on:submit={(e) => submit(e)}>
     <a href="#" class="waves-effect btn grey" on:click={() => { menu = original }}>Reset</a>
