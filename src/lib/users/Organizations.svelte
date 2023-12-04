@@ -28,14 +28,14 @@
       name: 'Name'
     },
     {
-      id: 'store',
-      name: 'Store',
+      id: 'home',
+      name: 'Home',
       formatter: (cell: any, row: any) => {
         return gridjs.h('a', {
-          href: `https://${row.cells[2].data}.erpnomy.subvind.com`,
+          href: `https://${row.cells[2].data}.homenomy.subvind.com`,
           target: "_blank",
           className: '',
-        }, `${row.cells[2].data}.erpnomy.subvind.com`);
+        }, `${row.cells[2].data}.homenomy.subvind.com`);
       }
     },
     {
