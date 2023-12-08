@@ -1,15 +1,17 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-
+  
+  import Organizations from '$lib/content/Organizations.svelte';
+  
   export let data
   let organization: any;
 
   onMount(async () => {
 
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, {
-      alignment: 'right'
-    });
+    // var elems = document.querySelectorAll('.dropdown-trigger');
+    // var instances = M.Dropdown.init(elems, {
+    //   alignment: 'right'
+    // });
     
     /**
      * fetch org
@@ -40,11 +42,10 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo white-text">Organizations</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
     </div>
-    <a href="#" data-target='dropdown1' class="btn-floating btn-large waves-effect waves-light black dropdown-trigger right" style="margin-top: -1.9em;"><i class="material-icons">more_vert</i></a>
+    <!-- <a href="#" data-target='dropdown1' class="btn-floating btn-large waves-effect waves-light black dropdown-trigger right" style="margin-top: -1.9em;"><i class="material-icons">more_vert</i></a> -->
     <!-- Dropdown Structure -->
-    <ul id='dropdown1' class='dropdown-content'>
+    <!-- <ul id='dropdown1' class='dropdown-content'>
       <li><a href="#!">create new</a></li>
       <li class="divider" tabindex="-1"></li>
       <li><a href="#!">JSON import</a></li>
@@ -52,18 +53,13 @@
       <li class="divider" tabindex="-1"></li>
       <li><a href="#!">documentation</a></li>
       <li><a href="#!">pricing</a></li>
-    </ul>
+    </ul> -->
   </div>
 </nav>
 
 <div class="container">
   {#if organization}
-    <!-- <Products organization={organization} /> -->
-    <br />
-    <br />
-    <br />
-    <h5>Coming soon...</h5>
-    <p>This section of the application is still under construction.</p>
+    <Organizations organization={organization} />
   {/if}
 </div>
 
