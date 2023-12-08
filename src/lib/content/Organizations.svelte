@@ -105,7 +105,7 @@
     }
 
     /**
-     * fetch org
+     * fetch child orgs
      */
     const responseOrg = await fetch(`https://api.subvind.com/organizations/childRelated/${organization.id}`, {
       method: 'GET',
