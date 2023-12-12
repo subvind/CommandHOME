@@ -14,8 +14,8 @@
 
 <br />
 <div class="container">
-  <h5>Analytics, Notifications</h5>
-  <p>This section of the application is still under construction.</p>
+  <h5>Activity</h5>
+  <p>dashboard goes here...</p>
 </div>
 
 
