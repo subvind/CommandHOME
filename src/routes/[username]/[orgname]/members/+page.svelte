@@ -14,8 +14,8 @@
 
 <br />
 <div class="container">
-  <h5>Members list</h5>
-  <p>This section of the application is still under construction.</p>
+  <h5>Members</h5>
+  <p>dashboard goes here...</p>
 </div>
 
 

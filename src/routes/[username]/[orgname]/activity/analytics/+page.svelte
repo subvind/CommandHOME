@@ -32,6 +32,15 @@
 
 </script>
 
+<nav class="nav-extended grey darken-4">
+  <div class="container">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo white-text">Analytics</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </div>
+</nav>
+
 {#if organization}
   <Analytics organization={organization} />
 {/if}
