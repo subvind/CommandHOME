@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Header from "$lib/members/Header.svelte"
+  import Header from "$lib/accounts/Header.svelte"
 
   import { page } from '$app/stores';
 

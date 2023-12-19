@@ -27,7 +27,7 @@
     <a href={`/${username}/${orgname}/activity`}><span class="red">activity</span></a>
   </li>
   <li>
-    <a href={`/${username}/${orgname}/members`}><span class="green">members</span></a>
+    <a href={`/${username}/${orgname}/accounts`}><span class="green">accounts</span></a>
   </li>
 </ul>
 

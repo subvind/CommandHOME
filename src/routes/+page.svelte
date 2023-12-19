@@ -39,7 +39,7 @@
         <h4 style="margin: 0;">
           <span class="blue">content,</span>
           <span class="red">activity,</span>
-          <span class="green">and members</span>
+          <span class="green">and accounts</span>
         </h4>
         <p>in an organization.</p>
         <br />
