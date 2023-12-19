@@ -84,7 +84,7 @@
   })
 </script>
 
-<nav class="nav-extended yellow lighten-2">
+<nav class="nav-extended green darken-3">
   <div class="container">
     <div class="nav-wrapper">
       {#if organization && account}

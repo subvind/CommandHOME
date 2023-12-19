@@ -29,7 +29,7 @@
   })
 </script>
 
-<nav class="nav-extended grey darken-4">
+<nav class="nav-extended green darken-3">
   <div class="container">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo white-text">Memebers</a>
@@ -37,6 +37,8 @@
     </div>
   </div>
 </nav>
+
+<br />
 
 <div class="container">
   {#if organization}

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import CreateAccount from "./CreateAccount.svelte";
+  import CreateAccount from "../organizations/CreateAccount.svelte";
 
   import Table from "$lib/Table.svelte"
   import * as gridjs from "gridjs";
@@ -17,6 +17,7 @@
       name: 'Reference',
       width: '150px',
       sort: false,
+      hidden: true,
       formatter: (cell: any, row: any) => {
         return gridjs.h('div', {
           style: 'width: 70px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;',
@@ -37,16 +38,19 @@
       id: 'supplierStatus',
       name: 'Sup. Status',
       width: '200px',
+      hidden: type === 'supplier' ? false : true
     },
     {
       id: 'employeeStatus',
       name: 'Emp. Status',
       width: '200px',
+      hidden: type === 'employee' ? false : true
     },
     {
       id: 'customerStatus',
       name: 'Cus. Status',
       width: '200px',
+      hidden: type === 'customer' ? false : true
     },
     {
       id: 'joinDate',

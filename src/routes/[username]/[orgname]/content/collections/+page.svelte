@@ -35,7 +35,7 @@
   })
 </script>
 
-<nav class="nav-extended grey darken-4">
+<nav class="nav-extended blue darken-1">
   <div class="container">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo white-text">Collections</a>

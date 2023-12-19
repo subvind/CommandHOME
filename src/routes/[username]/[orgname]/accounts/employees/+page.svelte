@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-
+  
+  import Accounts from '$lib/accounts/Accounts.svelte';
+  
   export let data
   let organization: any;
 
@@ -29,7 +31,7 @@
   })
 </script>
 
-<nav class="nav-extended grey darken-4">
+<nav class="nav-extended green darken-3">
   <div class="container">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo white-text">Employees</a>
@@ -38,14 +40,11 @@
   </div>
 </nav>
 
+<br />
+
 <div class="container">
   {#if organization}
-    <!-- <Products organization={organization} /> -->
-    <br />
-    <br />
-    <br />
-    <h5>Coming soon...</h5>
-    <p>This section of the application is still under construction.</p>
+    <Accounts organization={organization} type="employee" />
   {/if}
 </div>
 

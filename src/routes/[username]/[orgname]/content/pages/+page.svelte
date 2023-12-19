@@ -35,12 +35,11 @@
   })
 </script>
 
-<nav class="nav-extended grey darken-4">
+<nav class="nav-extended blue darken-1">
   <div class="container">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo white-text">Pages</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
     </div>
     <a href="#" data-target='dropdown1' class="btn-floating btn-large waves-effect waves-light black dropdown-trigger right" style="margin-top: -1.9em;"><i class="material-icons">more_vert</i></a>
     <!-- Dropdown Structure -->
