@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
+  import Accounts from '$lib/accounts/Accounts.svelte';
+  
   export let data
   let organization: any;
 
@@ -42,12 +44,7 @@
 
 <div class="container">
   {#if organization}
-    <!-- <Products organization={organization} /> -->
-    <br />
-    <br />
-    <br />
-    <h5>Coming soon...</h5>
-    <p>This section of the application is still under construction.</p>
+    <Accounts organization={organization} type="subscriber" />
   {/if}
 </div>
 

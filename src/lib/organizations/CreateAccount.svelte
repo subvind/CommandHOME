@@ -39,9 +39,12 @@
 	let email = ''
   let password = ''
   let passwordRepeat = ''
+  let memberStatus = ''
   let customerStatus = ''
   let employeeStatus = ''
   let supplierStatus = ''
+  let subscriberStatus = ''
+  let clientStatus = ''
 
 	async function submit(event: any) {
     event.preventDefault()
@@ -53,9 +56,12 @@
     if (password === '') return alert('Password must be defined.')
     if (passwordRepeat === '') return alert('Confirm Password must be defined.')
     if (passwordRepeat !== password) return alert('Passwords must match.')
+    if (memberStatus === '') return alert('Member status must be defined.')
     if (customerStatus === '') return alert('Customer status must be defined.')
     if (employeeStatus === '') return alert('Employee status must be defined.')
     if (supplierStatus === '') return alert('Supplier status must be defined.')
+    if (subscriberStatus === '') return alert('Subscriber status must be defined.')
+    if (clientStatus === '') return alert('Client status must be defined.')
 
     loading = true 
 
@@ -72,6 +78,9 @@
           lastName,
           email,
           password,
+          member: {
+            memberStatus
+          },
           customer: {
             customerStatus
           },
@@ -80,6 +89,12 @@
           },
           supplier: {
             supplierStatus
+          },
+          subscriber: {
+            subscriberStatus
+          },
+          client: {
+            clientStatus
           },
           organization: {
             id: organizationId
@@ -138,6 +153,15 @@
           <label for="passwordRepeat">Password Confirm</label>
         </div>
         <div class="input-field col s12">
+          <select bind:value={memberStatus}>
+            <option value="" disabled selected>Choose one...</option>
+            <option value="Free">FREE: this account is not paying anything</option>
+            <option value="Plus">PLUS: this account is paying for ads to be removed</option>
+            <option value="Premium">PREMIUM: this account is paying for plus and bonuses</option>
+          </select>
+          <label>Member Status</label>
+        </div>
+        <div class="input-field col s12">
           <select bind:value={customerStatus}>
             <option value="" disabled selected>Choose one...</option>
             <option value="Void">VOID: we don't know</option>
@@ -174,6 +198,48 @@
             <option value="Banned">BANNED: this supplier has done something wrong</option>
           </select>
           <label>Supplier Status</label>
+        </div>
+        <div class="input-field col s12">
+          <select bind:value={subscriberStatus}>
+            <option value="" disabled selected>Choose one...</option>
+            <option value="Void">VOID: we don't know</option>
+            <option value="Unsubscribed">UNSUBSCRIBED</option>
+            <option value="Subscribed">SUBSCRIBED</option>
+            <option value="Subscribed with notifications">SUBSCRIBED_WITH_NOTIFICATIONS</option>
+          </select>
+          <label>Subscriber Status</label>
+        </div>
+        <div class="input-field col s12">
+          <select bind:value={clientStatus}>
+            <option value="" disabled selected>Choose one...</option>
+            <option value="0">LEVEL_0: free</option>
+            <option value="1">LEVEL_1: paid</option>
+            <option value="2">LEVEL_2: paid</option>
+            <option value="3">LEVEL_3: paid</option>
+            <option value="4">LEVEL_4: paid</option>
+            <option value="5">LEVEL_5: paid</option>
+            <option value="6">LEVEL_6: paid</option>
+            <option value="7">LEVEL_7: paid</option>
+            <option value="8">LEVEL_8: paid</option>
+            <option value="9">LEVEL_9: paid</option>
+            <option value="10">LEVEL_10: paid</option>
+            <option value="11">LEVEL_11: paid</option>
+            <option value="12">LEVEL_12: paid</option>
+            <option value="13">LEVEL_13: paid</option>
+            <option value="14">LEVEL_14: paid</option>
+            <option value="15">LEVEL_15: paid</option>
+            <option value="16">LEVEL_16: paid</option>
+            <option value="17">LEVEL_17: paid</option>
+            <option value="18">LEVEL_18: paid</option>
+            <option value="19">LEVEL_19: paid</option>
+            <option value="20">LEVEL_20: paid</option>
+            <option value="21">LEVEL_21: paid</option>
+            <option value="22">LEVEL_22: paid</option>
+            <option value="23">LEVEL_23: paid</option>
+            <option value="24">LEVEL_24: paid</option>
+            <option value="25">LEVEL_25: paid</option>
+          </select>
+          <label>Client Status</label>
         </div>
       </div>
     </div>

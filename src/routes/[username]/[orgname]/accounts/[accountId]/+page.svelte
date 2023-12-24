@@ -5,9 +5,12 @@
   import Code from "$lib/Code.svelte";
   import CreateAccount from "$lib/organizations/CreateAccount.svelte";
   import Delete from "$lib/accounts/Delete.svelte";
+  import Member from "$lib/accounts/Member.svelte";
   import Supplier from "$lib/accounts/Supplier.svelte";
   import Employee from "$lib/accounts/Employee.svelte";
   import Customer from "$lib/accounts/Customer.svelte";
+  import Subscriber from "$lib/accounts/Subscriber.svelte";
+  import Client from "$lib/accounts/Client.svelte";
 
   export let data: any;
   let user: any = null;
@@ -90,10 +93,10 @@
       {#if organization && account}
         <ul id="nav-mobile" class="left">
           <li>
-            <a href={`/${organization.owner.username}/${organization.orgname}`} class="black-text">{organization.displayName}</a>
+            <a href={`/${organization.owner.username}/${organization.orgname}`} class="black-text">organization: {organization.displayName}</a>
           </li>
           <li>
-            <a href="#" class="black-text">{account.accountname}</a>
+            <a href="#" class="black-text">account: {account.accountname}</a>
           </li>
         </ul>
       {:else}
@@ -105,12 +108,15 @@
         <ul class="tabs tabs-transparent black lighten-2">
           <li class="tab">
             <a class="active" href="#profile" on:click={() => section = 'profile'}>
-              {account.accountname}
+              main
             </a>
           </li>
+          <li class="tab"><a href="#member" on:click={() => section = 'member'}>member</a></li>
           <li class="tab"><a href="#supplier" on:click={() => section = 'supplier'}>supplier</a></li>
           <li class="tab"><a href="#employee" on:click={() => section = 'employee'}>employee</a></li>
           <li class="tab"><a href="#customer" on:click={() => section = 'customer'}>customer</a></li>
+          <li class="tab"><a href="#subscriber" on:click={() => section = 'subscriber'}>subscriber</a></li>
+          <li class="tab"><a href="#client" on:click={() => section = 'client'}>client</a></li>
         </ul>
       {/if}
     </div>
@@ -127,6 +133,11 @@
         </div>
       </div>
     {/if}
+    {#if account && organization && section === 'member'}
+      <div id="member" class="col s12">
+        <Member accountId={account.id} />
+      </div>
+    {/if}
     {#if account && organization && section === 'supplier'}
       <div id="supplier" class="col s12">
         <Supplier accountId={account.id} />
@@ -140,6 +151,16 @@
     {#if account && organization && section === 'customer'}
       <div id="customer" class="col s12">
         <Customer accountId={account.id} />
+      </div>
+    {/if}
+    {#if account && organization && section === 'subscriber'}
+      <div id="subscriber" class="col s12">
+        <Subscriber accountId={account.id} />
+      </div>
+    {/if}
+    {#if account && organization && section === 'client'}
+      <div id="client" class="col s12">
+        <Client accountId={account.id} />
       </div>
     {/if}
   </div>

@@ -35,6 +35,12 @@
       width: '200px',
     },
     {
+      id: 'memberStatus',
+      name: 'Mem. Status',
+      width: '200px',
+      hidden: type === 'member' ? false : true
+    },
+    {
       id: 'supplierStatus',
       name: 'Sup. Status',
       width: '200px',
@@ -51,6 +57,18 @@
       name: 'Cus. Status',
       width: '200px',
       hidden: type === 'customer' ? false : true
+    },
+    {
+      id: 'subscriberStatus',
+      name: 'Sub. Status',
+      width: '200px',
+      hidden: type === 'subscriber' ? false : true
+    },
+    {
+      id: 'clientStatus',
+      name: 'Cli. Status',
+      width: '200px',
+      hidden: type === 'client' ? false : true
     },
     {
       id: 'joinDate',
@@ -77,9 +95,12 @@
       value.id,
       value.accountname,
       `${value.firstName} ${value.lastName}`,
-      value.supplier.supplierStatus,
-      value.employee.employeeStatus,
-      value.customer.customerStatus,
+      value.member?.memberStatus,
+      value.supplier?.supplierStatus,
+      value.employee?.employeeStatus,
+      value.customer?.customerStatus,
+      value.subscriber?.subscriberStatus,
+      value.client?.clientStatus,
       value.createdAt
     ]
   }
